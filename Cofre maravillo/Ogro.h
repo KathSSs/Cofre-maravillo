@@ -6,6 +6,7 @@ class Ogro :
 public: 
     Ogro(); 
     ~Ogro();
+  
 
 };
 

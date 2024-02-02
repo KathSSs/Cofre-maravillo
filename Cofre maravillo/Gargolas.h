@@ -3,7 +3,7 @@
 class Gargolas :
     public Enemigos
 {
-
+public:
     Gargolas();
     ~Gargolas(); 
 };

@@ -138,6 +138,7 @@
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="Ogro.cpp" />
     <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="Tablero.cpp" />
     <ClCompile Include="Tentaculos.cpp" />
     <ClCompile Include="Yesca.cpp" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="Herramientas.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Ogro.h" />
+    <ClInclude Include="Tablero.h" />
     <ClInclude Include="Tentaculos.h" />
     <ClInclude Include="Yesca.h" />
   </ItemGroup>
