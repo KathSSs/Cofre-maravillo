@@ -127,24 +127,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ballesta.cpp" />
     <ClCompile Include="Caballero.cpp" />
+    <ClCompile Include="CofreMaravilloso.cpp" />
+    <ClCompile Include="Daga.cpp" />
     <ClCompile Include="Enemigos.cpp" />
+    <ClCompile Include="Espada.cpp" />
     <ClCompile Include="Gargolas.cpp" />
     <ClCompile Include="Herramientas.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="Ogro.cpp" />
     <ClCompile Include="Principal.cpp" />
     <ClCompile Include="Tentaculos.cpp" />
+    <ClCompile Include="Yesca.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ballesta.h" />
     <ClInclude Include="Caballero.h" />
+    <ClInclude Include="CofreMaravilloso.h" />
+    <ClInclude Include="Daga.h" />
     <ClInclude Include="ElementosJuegos.h" />
     <ClInclude Include="Enemigos.h" />
+    <ClInclude Include="Espada.h" />
     <ClInclude Include="Gargolas.h" />
     <ClInclude Include="Herramientas.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Ogro.h" />
     <ClInclude Include="Tentaculos.h" />
+    <ClInclude Include="Yesca.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

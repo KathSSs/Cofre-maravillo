@@ -3,12 +3,8 @@
 #include "ElementosJuegos.h"
 class Herramientas : public ElementosJuegos
 {
-	//Aqui va Camila 
-
-
-	//Hola Camila!
-
-
-
+public:
+	Herramientas(std::string n);
+	~Herramientas();
 };
 

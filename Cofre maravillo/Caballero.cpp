@@ -9,7 +9,7 @@ void Caballero::setNombre(std::string n)
 Caballero::Caballero(){
 	hp = 100;
 	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < i; j++) {
+		for (int j = 0; j < 4; j++) {
 			inventario[i][j] = nullptr; 
 		}
 	}
@@ -19,7 +19,7 @@ Caballero::Caballero(){
 Caballero::Caballero(std::string, Herramientas* inven) { 
 	hp = 100;
 for (int i = 0; i < 3; i++) {
-	for (int j = 0; j < i; j++) {
+	for (int j = 0; j < 4; j++) {
 		inventario[i][j] = inven;
 	}
 }

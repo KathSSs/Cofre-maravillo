@@ -5,7 +5,7 @@ class Caballero{
 private:
 	std::string nombre; 
 	int hp; 
-	Herramientas* inventario[3][3]; 
+	Herramientas* inventario[3][4]; 
 
 public: 
 	Caballero(); 
