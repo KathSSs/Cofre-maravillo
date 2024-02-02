@@ -127,10 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ElementosJuegos.cpp" />
     <ClCompile Include="Enemigos.cpp" />
     <ClCompile Include="Herramientas.cpp" />
     <ClCompile Include="Items.cpp" />
+    <ClCompile Include="Ogro.cpp" />
     <ClCompile Include="Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +138,7 @@
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="Herramientas.h" />
     <ClInclude Include="Items.h" />
+    <ClInclude Include="Ogro.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
