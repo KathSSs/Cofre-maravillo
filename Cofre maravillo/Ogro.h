@@ -3,10 +3,9 @@
 
 class Ogro :
     public Enemigos{
-private: 
+public: 
     Ogro(); 
-    ~Ogro(); 
-
+    ~Ogro();
 
 };
 

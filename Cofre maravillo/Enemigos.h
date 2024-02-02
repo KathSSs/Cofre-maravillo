@@ -1,7 +1,7 @@
 #pragma once
 #include "ElementosJuegos.h"
 
-enum class Tipo { AIRE, TIERRA, AGUA, NINGUNO };
+static enum class Tipo { AIRE, TIERRA, AGUA, NINGUNO };
 
 class Enemigos : public ElementosJuegos
 {
