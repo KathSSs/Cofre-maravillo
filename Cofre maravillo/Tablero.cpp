@@ -21,9 +21,9 @@ Tablero::~Tablero()
 
 void Tablero::ingresar(ElementosJuegos* tab)
 {
-
 	for (int i = 0; i < 9; i++) {
 		for (int j = i; j < 9;j++) {
+
 			tablero[i][j] = tab;
 		}
 	}
@@ -32,10 +32,4 @@ void Tablero::ingresar(ElementosJuegos* tab)
 ElementosJuegos* Tablero::getArma()
 {
 	return tablero[0][0];
-}
-
-bool Tablero::revisaMatriz()
-{
-	if()
-	return false;
 }
