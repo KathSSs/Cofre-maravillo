@@ -6,6 +6,5 @@ class Tentaculos :
 public: 
     Tentaculos(); 
     ~Tentaculos(); 
-  
 };
 

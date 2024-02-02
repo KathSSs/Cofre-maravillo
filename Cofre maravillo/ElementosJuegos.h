@@ -6,9 +6,12 @@ class ElementosJuegos
 {
 protected: 
 	std::string nombre; 
-
+	int cantidad ;
 public:
-	virtual std::string getNombre() = 0; 
-	ElementosJuegos(std::string t) { nombre = t;  }
+	virtual std::string getNombre() = 0;
+	virtual int getCantidad() = 0;
+	virtual void setCantidad() = 0;
+	ElementosJuegos(std::string t, int cant) { nombre = t; cantidad = cant; }
+
 };
 

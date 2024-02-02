@@ -4,7 +4,9 @@
 class Herramientas : public ElementosJuegos
 {
 public:
-	Herramientas(std::string n);
+	Herramientas(std::string n, int cant);
 	~Herramientas();
+	virtual int getCantidad() = 0;
+	virtual void setCantidad() = 0;
 };
 

@@ -1,6 +1,6 @@
 #include "Enemigos.h"
 
-Enemigos::Enemigos(Tipo t, int Ataq, std::string n) : ElementosJuegos(n), tipo(t),hpAtaque(Ataq)
+Enemigos::Enemigos(Tipo t, int Ataq, std::string n, int cant) : ElementosJuegos(n, cant), tipo(t),hpAtaque(Ataq)
 {}
 
 Enemigos:: ~Enemigos() {}
