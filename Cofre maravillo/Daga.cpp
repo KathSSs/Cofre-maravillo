@@ -1,6 +1,6 @@
 #include "Daga.h"
 
-Daga::Daga(): Herramientas("Daga",0){}
+Daga::Daga(): Herramientas("Daga",5){}
 
 Daga::~Daga(){}
 

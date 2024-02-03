@@ -1,6 +1,6 @@
 #include "Yesca.h"
 
-Yesca::Yesca(): Herramientas("Yesca",0){}
+Yesca::Yesca(): Herramientas("Yesca",10){}
 
 Yesca::~Yesca(){}
 

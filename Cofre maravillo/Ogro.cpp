@@ -1,15 +1,11 @@
 #include "Ogro.h"
 
-Ogro::Ogro():Enemigos(Tipo::TIERRA, 35, "Ogro",0){}
+Ogro::Ogro():Enemigos(Tipo::TIERRA, 35, "Ogro",12){}
 
 Ogro::~Ogro(){} 
 
-std::string Ogro::getNombre() {
-	return "Ogro";
-}
-int Ogro::getCantidad() {
-	return 12;
-}
+std::string Ogro::getNombre() { return nombre;  }
+int Ogro::getCantidad() { return cantidad; }
 void Ogro::setCantidad(int c) { cantidad = c;  }
 
 int Ogro::getHpAtaque() { return 35; }
