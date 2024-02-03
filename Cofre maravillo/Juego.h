@@ -14,6 +14,8 @@ public:
 	void inicializarTablero();
 	void imprimirTablero(); 
 	void jugar();
+	template <typename T>
+	void colocarElementosAleatorios(int cantidad, char caracter);
 
 	//metodos para usar archivos
 	// tenemos que ver si van aqui
