@@ -6,5 +6,8 @@ class CofreMaravilloso :
 public:
     CofreMaravilloso();
     ~CofreMaravilloso();
+    std::string getNombre();
+    int getCantidad();
+    void setCantidad(int);
 };
 

@@ -6,5 +6,10 @@ class Gargolas :
 public:
     Gargolas();
     ~Gargolas(); 
+    std::string getNombre();
+    int getCantidad();
+    void setCantidad(int);
+    int getHpAtaque();
+    Tipo getTipo();
 };
 

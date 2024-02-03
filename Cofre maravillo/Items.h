@@ -9,7 +9,9 @@ public:
 	Items();
 	~Items();
 	int getIncrehp();
-
+	std::string getNombre();
+	 int getCantidad();
+	 void setCantidad(int);
 private:
 	int hpIncremento;
 };

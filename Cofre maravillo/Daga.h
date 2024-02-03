@@ -6,5 +6,8 @@ class Daga :
 public: 
     Daga();
     ~Daga();
+    int getCantidad();
+    void setCantidad(int);
+    std::string getNombre();
 };
 
