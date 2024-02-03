@@ -6,5 +6,8 @@ class Yesca :
 public:
     Yesca();
     ~Yesca();
+    int getCantidad();
+    void setCantidad(int);
+    std::string getNombre();
 };
 

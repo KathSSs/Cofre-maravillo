@@ -6,5 +6,8 @@ class Espada :
 public:
     Espada();
     ~Espada();
+    int getCantidad();
+    void setCantidad(int);
+    std::string getNombre();
 };
 

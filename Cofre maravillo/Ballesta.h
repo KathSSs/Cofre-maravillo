@@ -6,5 +6,8 @@ class Ballesta :
 public:
     Ballesta();
     ~Ballesta();
+    int getCantidad();
+    void setCantidad(int);
+    std::string getNombre();
 };
 

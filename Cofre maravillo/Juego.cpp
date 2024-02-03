@@ -6,7 +6,8 @@ Juego::Juego() :caballero("Knight Camila") {
 			matriz[i][j] = nullptr;
 		}
 	}
-
+    colocarElementosAleatorios<Espada>(7, 'E');
+    colocarElementosAleatorios <Ballesta>(6, 'B'); 
     colocarElementosAleatorios<Ogro>(12, 'O'); 
 
 }

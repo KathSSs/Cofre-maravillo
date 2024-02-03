@@ -7,6 +7,7 @@ public:
 	Herramientas(std::string n, int cant);
 	~Herramientas();
 	virtual int getCantidad() = 0;
-	virtual void setCantidad() = 0;
+	virtual void setCantidad(int) = 0;
+	virtual std::string getNombre() = 0;
 };
 

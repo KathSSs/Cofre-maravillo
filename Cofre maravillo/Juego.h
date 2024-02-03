@@ -3,6 +3,15 @@
 #include "ElementosJuegos.h"
 #include "Caballero.h"
 #include "Ogro.h"
+#include "Espada.h"
+#include "Ballesta.h"
+#include "Yesca.h"
+#include "Daga.h"
+#include "Tentaculos.h"
+#include "Gargolas.h"
+#include "Items.h"
+#include "CofreMaravilloso.h"
+
 class Juego{
 private:
 	Caballero caballero;
