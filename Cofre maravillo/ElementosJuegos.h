@@ -10,7 +10,7 @@ protected:
 public:
 	virtual std::string getNombre() = 0;
 	virtual int getCantidad() = 0;
-	virtual void setCantidad() = 0;
+	virtual void setCantidad(int) = 0;
 	ElementosJuegos(std::string t, int cant) { nombre = t; cantidad = cant; }
 
 };

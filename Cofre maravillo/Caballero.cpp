@@ -8,6 +8,7 @@ void Caballero::setNombre(std::string n)
 
 Caballero::Caballero(){
 	hp = 100;
+	nombre = "Caballero Misterioso"; 
 	for (int i = 0; i < 3; i++) {
 		for (int j = i; j < 4; j++) {
 			inventario[i][j] = nullptr; 
@@ -16,7 +17,17 @@ Caballero::Caballero(){
 
 }
 
-Caballero::Caballero(std::string, Herramientas* inven) { 
+Caballero::Caballero(std::string n) : nombre{ n }, hp{ 100 } {
+	for (int i = 0; i < 3; i++) {
+		for (int j = i; j < 4; j++) {
+			inventario[i][j] = nullptr;
+		}
+	}
+}
+
+
+
+Caballero::Caballero(std::string m, Herramientas* inven) { 
 	hp = 100;
 for (int i = 0; i < 3; i++) {
 	for (int j = i; j < 4; j++) {
@@ -39,6 +50,8 @@ Caballero::~Caballero() {
 	}
 	delete[] inventario;
 }
+
+
 std::string Caballero::getNombre() { return nombre; }
 int Caballero::getHp() { return hp; }
 void Caballero::setHp(int JD) { hp = JD; }

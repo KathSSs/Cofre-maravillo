@@ -10,7 +10,7 @@ public:
     ~Enemigos();
     virtual std::string getNombre() = 0; 
    virtual int getCantidad() = 0;
-   virtual void setCantidad() = 0;
+   virtual void setCantidad(int) = 0;
     virtual int getHpAtaque()=0;
     virtual Tipo getTipo() = 0;
 protected:

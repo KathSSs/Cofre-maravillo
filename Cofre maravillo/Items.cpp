@@ -1,6 +1,6 @@
 #include "Items.h"
 
-Items::Items(): hpIncremento{15},ElementosJuegos("Hierba"){}
+Items::Items(): ElementosJuegos("Nombre", 6),hpIncremento { 15 } {}
 
 Items::~Items(){}
 

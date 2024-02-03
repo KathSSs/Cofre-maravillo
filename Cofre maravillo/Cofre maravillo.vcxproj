@@ -136,6 +136,7 @@
     <ClCompile Include="Gargolas.cpp" />
     <ClCompile Include="Herramientas.cpp" />
     <ClCompile Include="Items.cpp" />
+    <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Ogro.cpp" />
     <ClCompile Include="Principal.cpp" />
     <ClCompile Include="Tablero.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Gargolas.h" />
     <ClInclude Include="Herramientas.h" />
     <ClInclude Include="Items.h" />
+    <ClInclude Include="Juego.h" />
     <ClInclude Include="Ogro.h" />
     <ClInclude Include="Tablero.h" />
     <ClInclude Include="Tentaculos.h" />

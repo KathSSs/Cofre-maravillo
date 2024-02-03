@@ -6,7 +6,10 @@ class Ogro :
 public: 
     Ogro(); 
     ~Ogro();
-  
-
+    std::string getNombre();
+        int getCantidad();
+        void setCantidad(int);
+        int getHpAtaque();
+         Tipo getTipo();
 };
 

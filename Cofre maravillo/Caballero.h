@@ -9,6 +9,7 @@ private:
 
 public: 
 	Caballero(); 
+	Caballero(std::string);
 	Caballero(std::string, Herramientas* inven);
 	~Caballero(); 
 	std::string getNombre(); 
