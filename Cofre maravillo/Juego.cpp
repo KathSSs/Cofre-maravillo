@@ -51,7 +51,7 @@ bool Juego::puedeDerrotarlo(Enemigos* enemi)
 {
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 4; ++j) { 
-            Herramientas* aux = caballero.getHerramienta(i, j);
+            ElementosJuegos* aux = caballero.getHerramienta(i, j);
             if (aux != nullptr) {  
                 if (typeid(*aux) == typeid(Ballesta) && typeid(*enemi) == typeid(Gargolas)) {
                     return true;
@@ -67,7 +67,6 @@ bool Juego::puedeDerrotarlo(Enemigos* enemi)
                 else if (typeid(*aux) == typeid(Daga) && typeid(*enemi) == typeid(Ogro)) {
                     return true;
                 }
-             
             }
         }
     }
@@ -88,10 +87,28 @@ bool Juego::reduccionDeVida(Enemigos* ene, Caballero& knight) {
     }
 }
 
-bool Juego::ingresaHerramienta(Herramientas h,Caballero&  Knight ) {
-    Knight.
+ElementosJuegos* Juego::revisaSiesHerramienta()
+{
+    ElementosJuegos* aux;
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+          aux=  matriz[i][j];
+          if (typeid(*aux) == typeid(Herramientas)) {
+              return aux;
+          }
+        }
+    } 
+}
 
+bool Juego::ingresaHerramienta(Caballero&  Knight ) 
+{
+    ElementosJuegos* h= revisaSiesHerramienta();
 
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+            Knight.setHerramientas(h, i, j);
+        }
+    }
 }
 
 void Juego::jugar()

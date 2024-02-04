@@ -6,7 +6,7 @@ void Caballero::setNombre(std::string n)
 	nombre = n; 
 }
 
-Herramientas* Caballero::getHerramienta(int i, int j)
+ElementosJuegos* Caballero::getHerramienta(int i, int j)
 {
 	return inventario[i][j];
 }
@@ -56,7 +56,7 @@ Caballero::~Caballero() {
 	delete[] inventario;
 }
 
-Herramientas* Caballero::setHerramientas(Herramientas* herramienta, int i, int j) {
+ElementosJuegos* Caballero::setHerramientas(ElementosJuegos* herramienta, int i, int j) {
 	if (i >= 0 && i < 3 && j >= 0 && j < 4) {
 		if (inventario[i][j] == nullptr) {
 			inventario[i][j] = herramienta;
