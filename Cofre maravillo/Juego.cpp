@@ -102,11 +102,12 @@ ElementosJuegos* Juego::revisaSiesHerramienta()
 
 bool Juego::ingresaHerramienta(Caballero&  Knight ) 
 {
-    ElementosJuegos* h= revisaSiesHerramienta();
+    ElementosJuegos* herramienta= revisaSiesHerramienta();
 
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            Knight.setHerramientas(h, i, j);
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            Knight.setHerramientas(herramienta, i, j);
+            return true;
         }
     }
 }

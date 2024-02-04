@@ -47,16 +47,15 @@ for (int i = 0; i < 3; i++) {
 
 Caballero::~Caballero() {
 	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < i; j++) {
+		for (int j = i; j < 4; j++) {
 			delete inventario[i][j]; 
-       
 		}
 		delete inventario[i]; 
 	}
 	delete[] inventario;
 }
 
-ElementosJuegos* Caballero::setHerramientas(ElementosJuegos* herramienta, int i, int j) {
+void Caballero::setHerramientas(ElementosJuegos* herramienta, int i, int j) {
 	if (i >= 0 && i < 3 && j >= 0 && j < 4) {
 		if (inventario[i][j] == nullptr) {
 			inventario[i][j] = herramienta;

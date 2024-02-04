@@ -18,7 +18,7 @@ public:
 	void setHp(int);
 	void setNombre(std::string);
 	ElementosJuegos* getHerramienta(int i, int j);
-	ElementosJuegos* setHerramientas(ElementosJuegos* , int , int );
+	void setHerramientas(ElementosJuegos* h, int , int );
 	void eliminarHerramienta(int i, int j); 
 };
 #endif CABALLERO_H
