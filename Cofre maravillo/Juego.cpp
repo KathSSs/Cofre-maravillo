@@ -43,9 +43,8 @@ void Juego::imprimirTablero()
     }
 }
 
-bool Juego::puedeDerrotarlo()
+bool Juego::puedeDerrotarlo(Enemigos* enemi)
 {
-    Enemigos* enemi;
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 4; ++j) {
             Herramientas* aux = caballero.getHerramienta(i, j);
@@ -64,6 +63,7 @@ bool Juego::puedeDerrotarlo()
                 return true;
             }
             else
+                //Aqui se podria añadir un metod para la disminución del hp
                 return false;
         }
     }
@@ -71,8 +71,10 @@ bool Juego::puedeDerrotarlo()
 
 void Juego::jugar()
 {
+    bool puedeDerrotarlo(Enemigos * enemi);
    
 }
+
 
 
 template <typename T>

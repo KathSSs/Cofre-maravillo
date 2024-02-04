@@ -11,6 +11,7 @@
 #include "Gargolas.h"
 #include "Items.h"
 #include "CofreMaravilloso.h"
+#include <typeinfo>
 
 class Juego{
 private:
@@ -22,7 +23,7 @@ public:
 	~Juego();
 	void inicializarTablero();
 	void imprimirTablero(); 
-	bool puedeDerrotarlo();
+	bool puedeDerrotarlo(Enemigos* enemi);
 	void jugar();
 	template <typename T>
 	void colocarElementosAleatorios(int cantidad, char caracter);

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CABALLERO_H
+#define CABALLERO_H
 #include "Herramientas.h"
 
 class Caballero{
@@ -18,4 +19,4 @@ public:
 	void setNombre(std::string);
 	Herramientas* getHerramienta(int i, int j);
 };
-
+#endif CABALLERO_H

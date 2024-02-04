@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENEMIGO_H
+#define ENEMIGO_H
 #include "ElementosJuegos.h"
 #include "Herramientas.h"
 static enum class Tipo { AIRE, TIERRA, AGUA, NINGUNO };
@@ -17,4 +18,4 @@ protected:
     Tipo tipo; 
    int hpAtaque; 
 };
-
+#endif ENEMIGO_H
