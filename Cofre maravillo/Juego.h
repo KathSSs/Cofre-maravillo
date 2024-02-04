@@ -22,6 +22,7 @@ public:
 	~Juego();
 	void inicializarTablero();
 	void imprimirTablero(); 
+	bool puedeDerrotarlo();
 	void jugar();
 	template <typename T>
 	void colocarElementosAleatorios(int cantidad, char caracter);

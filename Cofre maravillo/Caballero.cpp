@@ -6,6 +6,11 @@ void Caballero::setNombre(std::string n)
 	nombre = n; 
 }
 
+Herramientas* Caballero::getHerramienta(int i, int j)
+{
+	return inventario[i][j];
+}
+
 Caballero::Caballero(){
 	hp = 100;
 	nombre = "Caballero Misterioso"; 

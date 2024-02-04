@@ -16,5 +16,6 @@ public:
 	int getHp();
 	void setHp(int);
 	void setNombre(std::string);
+	Herramientas* getHerramienta(int i, int j);
 };
 
