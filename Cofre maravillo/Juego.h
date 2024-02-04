@@ -1,5 +1,6 @@
 #ifndef JUEGO_H
 #define JUEGO_H
+#include <random>
 #include "ElementosJuegos.h"
 #include "Caballero.h"
 #include "Ogro.h"
@@ -17,13 +18,15 @@ class Juego{
 private:
 	Caballero caballero;
 	ElementosJuegos* matriz[9][9];
-
+	char tablero[9][9];
 public:
 	Juego(); 
 	~Juego();
 	void inicializarTablero();
 	void imprimirTablero(); 
 	bool puedeDerrotarlo(Enemigos* enemi);
+	bool reduccionDeVida(Enemigos*, Caballero& );
+	bool ingresaHerramienta(Herramientas,Caballero& ); 
 	void jugar();
 	template <typename T>
 	void colocarElementosAleatorios(int cantidad, char caracter);
