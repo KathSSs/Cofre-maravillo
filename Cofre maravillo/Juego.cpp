@@ -13,6 +13,12 @@ Juego::Juego() : caballero() {
     colocarElementosAleatorios<CofreMaravilloso>(1, 'C');
 }
 
+Juego::Juego( Caballero c)
+{
+    caballero = c;
+    
+}
+
 Juego::~Juego() {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
@@ -186,7 +192,6 @@ void Juego::guardarPartida()
     if (!file.is_open()) {
         std::cout << "Error al abrir el archivo...\n";
     }
-    file << (caballero.getNombre()) << "\n";
     caballero.guardarPartida();
    
     for (int i = 0; i < 9;i++) {
@@ -198,7 +203,7 @@ void Juego::guardarPartida()
     file.close();
 }
 
-void Juego::cargarPartida()
+Juego* Juego::cargarPartida()
 {
     std::ifstream file;
     file.open("registros.txt", std::ios::in);
@@ -208,24 +213,19 @@ void Juego::cargarPartida()
     }
 
     std::string buffer;
-    std::string nomCaballero;
-    /*std::string nomInventario;*/
+    std::string caballero;
     std::string nomElemento; //Cosas de la matriz
     int cantidad;
-   int filas = 9;
-   int columna=9;
-
+    /*int filas = 9;
+    int columna = 9;*/
+   /* std::string*** datos = new std::string * *[filas];*/
    while (std::getline(file, buffer)) {
        std::istringstream linea{ buffer };
-       std::getline(linea, nomCaballero, '|');
-       /* std::getline(linea, nomInventario, '|');*/
        std::getline(linea, nomElemento, '|');
        linea >> cantidad;
-
        // usuarios.push_back(new Usuario(cedula, nombre, edad));
-        /*caballero.push_back(new Caballero(nomCaballero, );*/
-     //  std::string*** datos = new std::string * *[filas];
-
+       return new Juego(caballero);
+       file.close();
    }
 }
 

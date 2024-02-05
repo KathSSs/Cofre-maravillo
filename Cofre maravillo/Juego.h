@@ -15,14 +15,14 @@
 #include <typeinfo>
 #include <ostream>
 
-class Juego{
+class Juego {
 private:
 	Caballero caballero;
 	ElementosJuegos* matriz[9][9];
-	
-public:
-	Juego(); 
 
+public:
+	Juego();
+	Juego( Caballero c);
 	~Juego();
 	void inicializarTablero();
 	void imprimirTablero(); 
@@ -36,7 +36,7 @@ public:
 
 	//metodos para usar archivos
 	void guardarPartida();
-	void cargarPartida(); 
+	Juego* cargarPartida(); 
 };
 
 #endif JUEGO_H
