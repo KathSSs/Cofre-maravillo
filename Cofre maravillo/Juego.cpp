@@ -121,6 +121,9 @@ bool Juego::ingresaHerramienta(ElementosJuegos* elem, Caballero& Knight) {
     return false;
 }
 
+
+
+
 void Juego::jugar() {
     while (caballero.getHp() > 0) {
         imprimirTablero();
@@ -137,18 +140,23 @@ void Juego::jugar() {
 
         ElementosJuegos* elemento = matriz[x][y];
         if (elemento != nullptr) {
-            system("cls");
+          system("cls");
 
             if (typeid(*elemento) == typeid(CofreMaravilloso)) {
                 std::cout << "¡Encontraste el cofre maravilloso! ¡Has ganado el juego!\n";
                //terminar el juego 
+
                 
             }
             else if (revisaSiesHerramienta(elemento)) {
                 ingresaHerramienta(elemento, caballero);
+                std::cout << "Arma ingresada en el inventario del caballero\n";
+                std::cout << "Inventario Actual\n";
+                caballero.mostrarInventario(); 
+
             }
             else if (typeid(*elemento) == typeid(Enemigos)) {
-                Enemigos* enemigo = dynamic_cast<Enemigos*>(elemento);
+                Enemigos* enemigo = dynamic_cast<Enemigos*>(elemento);  
                 if (puedeDerrotarlo(enemigo)) {
                     std::cout << "¡Has derrotado al enemigo!\n";
                     delete matriz[x][y];
@@ -171,13 +179,13 @@ void Juego::jugar() {
                     caballero.setHp(caballero.getHp() + 15);
                 }
             }
-
+           
             // Eliminar el elemento del tablero después de ser encontrado o interactuar con él
             delete matriz[x][y];
             matriz[x][y] = nullptr;
-        }
-        else {
-            std::cout << "No hay nada en estas coordenadas. Intenta de nuevo.\n";
+       // }
+      //  else {
+         //   std::cout << "No hay nada en estas coordenadas. Intenta de nuevo.\n";
         }
     }
 

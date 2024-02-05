@@ -34,6 +34,7 @@ public:
 	template <typename T>
 	void colocarElementosAleatorios(int cantidad, char caracter);
 
+
 	//metodos para usar archivos
 	void guardarPartida();
 	Juego* cargarPartida(); 

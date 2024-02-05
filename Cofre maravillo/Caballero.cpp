@@ -97,6 +97,7 @@ void Caballero::guardarPartida()
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
+
 	for (int i = 0; i < 3;i++) {
 		for (int j = i; i < 4;j++) {
 			file << (inventario[i][j]->getNombre()) << " \n ";
@@ -125,6 +126,23 @@ Caballero* Caballero::cargarPartida()
 
 	}
 }
+
+void Caballero::mostrarInventario()
+{
+	std::cout << "Inventario del Caballero:\n";
+
+	for (int i = 0; i < 3; ++i) {
+		for (int j = i; j < 4; ++j) {
+			if (inventario[i][j] != nullptr) {
+				std::cout << "[" << i << "][" << j << "]: " << inventario[i][j]->getNombre() << "\n";
+			}
+			else {
+				std::cout << "[" << i << "][" << j << "]: Vacío\n";
+			}
+		}
+	}
+}
+
 
 std::string Caballero::getNombre() { return nombre; }
 

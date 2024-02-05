@@ -22,7 +22,7 @@ public:
 	void setHp(int);
 	void setNombre(std::string);
 	ElementosJuegos* getHerramienta(int i, int j);
-	//std::string toString(); //Hacerlo Katy
+	void mostrarInventario(); 
 	bool setHerramientas(Herramientas* h, int , int );
 	void eliminarHerramienta(int i, int j); 
 	void guardarPartida();
