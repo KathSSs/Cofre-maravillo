@@ -19,7 +19,7 @@ public:
 	void setNombre(std::string);
 	ElementosJuegos* getHerramienta(int i, int j);
 	//std::string toString(); //Hacerlo Katy
-	void setHerramientas(ElementosJuegos* h, int , int );
+	bool setHerramientas(Herramientas* h, int , int );
 	void eliminarHerramienta(int i, int j); 
 };
 #endif CABALLERO_H

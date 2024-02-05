@@ -21,13 +21,14 @@ private:
 	char tablero[9][9];
 public:
 	Juego(); 
+
 	~Juego();
 	void inicializarTablero();
 	void imprimirTablero(); 
 	bool puedeDerrotarlo(Enemigos* enemi);
 	bool reduccionDeVida(Enemigos*, Caballero& );
 	ElementosJuegos* revisaSiesHerramienta(ElementosJuegos* elem );
-	bool ingresaHerramienta(ElementosJuegos* elem,Caballero& );
+	bool ingresaHerramienta(ElementosJuegos* elem ,Caballero& );
 	void jugar();
 	template <typename T>
 	void colocarElementosAleatorios(int cantidad, char caracter);

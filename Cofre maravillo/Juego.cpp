@@ -1,58 +1,64 @@
 #include "Juego.h"
 
-Juego::Juego() :caballero("Knight Camila") {
-    inicializarTablero(); 
+Juego::Juego() : caballero() {
+    inicializarTablero();
     colocarElementosAleatorios<Espada>(7, 'E');
-    colocarElementosAleatorios <Ballesta>(6, 'B');
-    colocarElementosAleatorios<Yesca>(10,'Y');
+    colocarElementosAleatorios<Ballesta>(6, 'B');
+    colocarElementosAleatorios<Yesca>(10, 'Y');
     colocarElementosAleatorios<Daga>(5, 'D');
     colocarElementosAleatorios<Tentaculos>(14, 'T');
-    colocarElementosAleatorios<Ogro>(12, 'O'); 
+    colocarElementosAleatorios<Ogro>(12, 'O');
     colocarElementosAleatorios<Gargolas>(10, 'G');
     colocarElementosAleatorios<Items>(6, 'H');
     colocarElementosAleatorios<CofreMaravilloso>(1, 'C');
 }
 
-Juego::~Juego()
-{
+Juego::~Juego() {
     for (int i = 0; i < 9; i++) {
-        for (int j = i; j < 9; j++) {
-            if(matriz[i][j]!=nullptr)
-           delete matriz[i][j];
-        }
-        delete matriz[i];
-    }
-    delete[]matriz;
-}
-
-void Juego::inicializarTablero()
-{
-    for (int i = 0; i < 9; i++) {
-        for (int j = i; j < 9; j++) {
+        for (int j = 0; j < 9; j++) {
+            delete matriz[i][j];
             matriz[i][j] = nullptr;
         }
+        delete[] matriz[i];
     }
-
+    delete[] matriz;
 }
 
-void Juego::imprimirTablero()
-{
-    for (int i = 0; i < 9; i++) {
-        for (int j = i; j < 9; j++) {
-            if (matriz[i][j] != nullptr) {
-                std::cout << "\t" << tablero[i][j] <<"  ";
-            }
+void Juego::inicializarTablero() {
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+            matriz[i][j] = nullptr;
+
+            tablero[i][j] = '-';
         }
-        std::cout << "\n";
     }
 }
 
-bool Juego::puedeDerrotarlo(Enemigos* enemi)
-{
+#include <iomanip>  // Necesario para std::setw
+
+void Juego::imprimirTablero() {
+    std::cout << "-----------------------------------------\n";
+    for (int i = 0; i < 9; i++) {
+        std::cout << "|";
+        for (int j = 0; j < 9; j++) {
+            std::cout << std::setw(15);  // Ajusta el ancho del campo
+            if (matriz[i][j] != nullptr) {
+                std::cout << matriz[i][j]->getNombre();
+            }
+            else {
+                std::cout << " ";
+            }
+            std::cout << "|";
+        }
+        std::cout << "\n-----------------------------------------\n";
+    }
+}
+
+bool Juego::puedeDerrotarlo(Enemigos* enemi) {
     for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 4; ++j) { 
+        for (int j = 0; j < 4; ++j) {
             ElementosJuegos* aux = caballero.getHerramienta(i, j);
-            if (aux != nullptr) {  
+            if (aux != nullptr) {
                 if (typeid(*aux) == typeid(Ballesta) && typeid(*enemi) == typeid(Gargolas)) {
                     return true;
                 }
@@ -70,9 +76,8 @@ bool Juego::puedeDerrotarlo(Enemigos* enemi)
             }
         }
     }
-    return false; 
+    return false;
 }
-
 
 bool Juego::reduccionDeVida(Enemigos* ene, Caballero& knight) {
     int reduccion;
@@ -87,27 +92,30 @@ bool Juego::reduccionDeVida(Enemigos* ene, Caballero& knight) {
     }
 }
 
-ElementosJuegos* Juego::revisaSiesHerramienta(ElementosJuegos* elem)
-{
-          if (typeid(*elem) == typeid(Herramientas)) {
-              return elem;
-          }
+ElementosJuegos* Juego::revisaSiesHerramienta(ElementosJuegos* elem) {
+    if (typeid(*elem) == typeid(Herramientas)) {
+        return elem;
+    }
+    return nullptr;
 }
 
-bool Juego::ingresaHerramienta(ElementosJuegos* elem, Caballero&  Knight )
-{
-    ElementosJuegos* herramienta= revisaSiesHerramienta(elem);
+bool Juego::ingresaHerramienta(ElementosJuegos* elem, Caballero& Knight) {
+    ElementosJuegos* herramienta = revisaSiesHerramienta(elem);
 
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            Knight.setHerramientas(herramienta, i, j);
-            return true;
+    if (herramienta != nullptr) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                if (Knight.setHerramientas(dynamic_cast<Herramientas*>(herramienta), i, j)) {
+                    std::cout << "Se ha agregado la herramienta al inventario del caballero.\n";
+                    return true;
+                }
+            }
         }
     }
+    return false;
 }
 
-void Juego::jugar()
-{
+void Juego::jugar() {
     while (caballero.getHp() > 0) {
         imprimirTablero();
 
@@ -123,14 +131,13 @@ void Juego::jugar()
 
         ElementosJuegos* elemento = matriz[x][y];
         if (elemento != nullptr) {
-            
-            if (typeid(*elemento) == typeid(CofreMaravilloso)) {
-                std::cout << "¡Encontraste el cofre maravilloso! ¡Has ganado el juego!\n"; 
-                break;
 
+            if (typeid(*elemento) == typeid(CofreMaravilloso)) {
+                std::cout << "¡Encontraste el cofre maravilloso! ¡Has ganado el juego!\n";
+                break;
             }
             else if (revisaSiesHerramienta(elemento)) {
-                ingresaHerramienta (elemento, caballero);
+                ingresaHerramienta(elemento, caballero);
             }
             else if (typeid(*elemento) == typeid(Enemigos)) {
                 Enemigos* enemigo = dynamic_cast<Enemigos*>(elemento);
@@ -142,7 +149,7 @@ void Juego::jugar()
                 else {
                     std::cout << "No puedes derrotar a este enemigo. ¡Te han atacado!\n";
                     if (reduccionDeVida(enemigo, caballero)) {
-                        std::cout << "TE HAS QUEDADO SIN VIDA. PIERDES EL JUEGO\n" ;
+                        std::cout << "TE HAS QUEDADO SIN VIDA. PIERDES EL JUEGO\n";
                     }
                 }
             }
@@ -166,11 +173,8 @@ void Juego::jugar()
     std::cout << "¡Fin del juego!\n";
 }
 
-
-
-
 template <typename T>
-void Juego:: colocarElementosAleatorios(int cantidad, char caracter) {
+void Juego::colocarElementosAleatorios(int cantidad, char caracter) {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<int> distribucion(0, 8);
@@ -186,5 +190,4 @@ void Juego:: colocarElementosAleatorios(int cantidad, char caracter) {
         tablero[x][y] = caracter;
     }
 }
-
 
