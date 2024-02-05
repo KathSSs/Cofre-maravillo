@@ -21,13 +21,36 @@
 
 int main() {
 	
-	
+	Juego j;
       
 	std::cout << "¡Bienvenido al juego del cofre maravilloso!\n";
-	std::cout << "Tu mision es encontrar el cofre maravilloso y derrotar a los enemigos.\n";
+	std::cout << "Tu mision es encontrar el cofre maravilloso y derrotar a los enemigos, si es que el codigo sirve\n";
+	std::cout << "En ese caso tu mision es descubrir como solucionar el codigo!.\n\n";
 	std::cout << "Buena suerte, caballero.\n\n";
-	Juego j;
-	j.jugar(); 
+
+    int opcion;
+
+    do {
+        std::cout << "\nMenú:\n";
+        std::cout << "1. Jugar\n";
+        std::cout << "2. Salir\n";
+        std::cout << "Ingrese su opción: ";
+        std::cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            j.jugar();
+            break;
+        case 2:
+            std::cout << "Gracias por jugar. ¡Hasta luego!\n";
+            return 0; 
+            break;
+        default:
+            std::cout << "Opción no válida. Intente de nuevo.\n";
+            break;
+        }
+
+    } while (opcion != 2);
 
 	system("pause");
 	return 0; 

@@ -19,7 +19,7 @@ Juego::~Juego() {
             delete matriz[i][j];
             matriz[i][j] = nullptr;
         }
-        delete[] matriz[i];
+        delete matriz[i];
     }
     delete[] matriz;
 }
@@ -29,7 +29,7 @@ void Juego::inicializarTablero() {
         for (int j = 0; j < 9; ++j) {
             matriz[i][j] = nullptr;
 
-            tablero[i][j] = '-';
+          
         }
     }
 }
@@ -37,11 +37,11 @@ void Juego::inicializarTablero() {
 #include <iomanip>  // Necesario para std::setw
 
 void Juego::imprimirTablero() {
-    std::cout << "-----------------------------------------\n";
+    std::cout << "---------------------------------------------------------------------------------------------------------------------------\n";
     for (int i = 0; i < 9; i++) {
         std::cout << "|";
         for (int j = 0; j < 9; j++) {
-            std::cout << std::setw(15);  // Ajusta el ancho del campo
+            std::cout << std::setw(12);  // Ajusta el ancho del campo
             if (matriz[i][j] != nullptr) {
                 std::cout << matriz[i][j]->getNombre();
             }
@@ -50,7 +50,7 @@ void Juego::imprimirTablero() {
             }
             std::cout << "|";
         }
-        std::cout << "\n-----------------------------------------\n";
+        std::cout << "\n---------------------------------------------------------------------------------------------------------------------------\n";
     }
 }
 
@@ -121,10 +121,10 @@ void Juego::jugar() {
 
         int x, y;
         std::cout << "Ingrese las coordenadas para mover al caballero (x y): ";
-        std::cin >> x >> y;
+        std::cin >> y >> x;
 
         // Verificar límites del tablero
-        if (x < 0 || x >= 9 || y < 0 || y >= 9) {
+        if (x < 0 || x > 9 || y < 0 || y > 9) {
             std::cout << "Coordenadas inválidas. Intente de nuevo.\n";
             continue;
         }
@@ -134,7 +134,8 @@ void Juego::jugar() {
 
             if (typeid(*elemento) == typeid(CofreMaravilloso)) {
                 std::cout << "¡Encontraste el cofre maravilloso! ¡Has ganado el juego!\n";
-                break;
+               //terminar el juego 
+                
             }
             else if (revisaSiesHerramienta(elemento)) {
                 ingresaHerramienta(elemento, caballero);
@@ -187,7 +188,7 @@ void Juego::colocarElementosAleatorios(int cantidad, char caracter) {
         } while (matriz[x][y] != nullptr);
 
         matriz[x][y] = new T();
-        tablero[x][y] = caracter;
+      
     }
 }
 

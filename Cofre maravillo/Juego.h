@@ -18,7 +18,7 @@ class Juego{
 private:
 	Caballero caballero;
 	ElementosJuegos* matriz[9][9];
-	char tablero[9][9];
+	
 public:
 	Juego(); 
 
