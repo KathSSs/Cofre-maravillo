@@ -13,6 +13,8 @@
 #include "Items.h"
 #include "CofreMaravilloso.h"
 #include <typeinfo>
+#include <sstream>
+#include <fstream>
 
 class Juego{
 private:
@@ -35,8 +37,8 @@ public:
 
 	//metodos para usar archivos
 	// tenemos que ver si van aqui
-	//void guardarPartida();
-	//void cargarPartida(); 
+	void guardarPartida();
+	void cargarPartida(); 
 };
 
 #endif JUEGO_H

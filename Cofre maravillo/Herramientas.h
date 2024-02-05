@@ -9,5 +9,7 @@ public:
 	virtual int getCantidad() = 0;
 	virtual void setCantidad(int) = 0;
 	virtual std::string getNombre() = 0;
+
+
 };
 

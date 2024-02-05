@@ -174,6 +174,89 @@ void Juego::jugar() {
     std::cout << "¡Fin del juego!\n";
 }
 
+void Juego::guardarPartida()
+{
+    std::ofstream file;
+    file.open("registros.txt", std::ios::app);
+
+    if (!file.is_open()) {
+        std::cout << "Error al abrir el archivo...\n";
+    }
+    file << (caballero.getNombre()) << "\n";
+    for (int i = 0; i < 3;i++) {
+        for (int j = i; i < 4;j++) {
+            file << (caballero.getHerramienta(i, j)->getNombre()) << " \n ";
+        }
+    }
+    for (int i = 0; i < 9;i++) {
+        for (int j = i; i < 9;j++) {
+            file << (matriz[i][j]->getNombre()) << " | ";
+            file << (matriz[i][j]->getCantidad()) << " \n ";
+        }
+    }
+    file.close();
+}
+
+void Juego::cargarPartida()
+{
+    std::ifstream file;
+    file.open("registros.txt", std::ios::in);
+
+    if (!file.is_open()) {
+        std::cout << "Error al abrir el archivo...\n";
+    }
+
+    std::string buffer;
+    std::string nomCaballero;
+    std::string nomInventario;
+    std::string nomElemento;
+    int cantidad;
+   int filas = 9;
+   int columna=9;
+
+    while (std::getline(file, buffer)) {
+        std::istringstream linea{ buffer };
+            std::getline(linea, nomCaballero, '|');
+            std::getline(linea, nomInventario, '|');
+            std::getline(linea, nomElemento, '|');
+            linea >> cantidad;
+           // usuarios.push_back(new Usuario(cedula, nombre, edad));
+            /*caballero.push_back(new Caballero(nomCaballero, );*/
+            std::string*** datos = new std::string * *[filas];
+            ///_________________________________________________________________//
+            for (int i = 0; i < filas; ++i) {
+                datos[i] = new std::string * [columna];
+                for (int j = 0; j < columna; ++j) {
+                    datos[i][j] = new std::string;
+                }
+            }
+            int fila = 0;
+
+            while (std::getline(file, buffer) && fila < filas) {
+                std::istringstream linea{ buffer };
+                std::getline(linea, *datos[fila][0], '|');
+                std::getline(linea, *datos[fila][1], '|');
+                std::getline(linea, *datos[fila][2], '|');
+                linea >> *datos[fila][3];
+
+                fila++;
+            }
+
+            // Aquí puedes usar la matriz 'datos' como desees.
+            // Por ejemplo, puedes imprimir los datos en la consola:
+            for (int i = 0; i < fila; ++i) {
+                for (int j = 0; j < columna; ++j) {
+                    std::cout << *datos[i][j] << " ";
+                }
+                std::cout << std::endl;
+            }
+
+            file.close();
+            //------------------------------------------------------------------------------------
+    }
+    }
+
+
 template <typename T>
 void Juego::colocarElementosAleatorios(int cantidad, char caracter) {
     std::random_device dev;
