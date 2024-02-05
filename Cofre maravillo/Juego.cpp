@@ -87,22 +87,16 @@ bool Juego::reduccionDeVida(Enemigos* ene, Caballero& knight) {
     }
 }
 
-ElementosJuegos* Juego::revisaSiesHerramienta()
+ElementosJuegos* Juego::revisaSiesHerramienta(ElementosJuegos* elem)
 {
-    ElementosJuegos* aux;
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-          aux=  matriz[i][j];
-          if (typeid(*aux) == typeid(Herramientas)) {
-              return aux;
+          if (typeid(*elem) == typeid(Herramientas)) {
+              return elem;
           }
-        }
-    } 
 }
 
-bool Juego::ingresaHerramienta(Caballero&  Knight ) 
+bool Juego::ingresaHerramienta(ElementosJuegos* elem, Caballero&  Knight )
 {
-    ElementosJuegos* herramienta= revisaSiesHerramienta();
+    ElementosJuegos* herramienta= revisaSiesHerramienta(elem);
 
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 4; ++j) {
@@ -129,9 +123,14 @@ void Juego::jugar()
 
         ElementosJuegos* elemento = matriz[x][y];
         if (elemento != nullptr) {
+            
             if (typeid(*elemento) == typeid(CofreMaravilloso)) {
-                std::cout << "¡Encontraste el cofre maravilloso! ¡Has ganado el juego!\n";
+                std::cout << "¡Encontraste el cofre maravilloso! ¡Has ganado el juego!\n"; 
                 break;
+
+            }
+            else if (revisaSiesHerramienta(elemento)) {
+                ingresaHerramienta (elemento, caballero);
             }
             else if (typeid(*elemento) == typeid(Enemigos)) {
                 Enemigos* enemigo = dynamic_cast<Enemigos*>(elemento);

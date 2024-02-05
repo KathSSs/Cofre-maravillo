@@ -26,8 +26,8 @@ public:
 	void imprimirTablero(); 
 	bool puedeDerrotarlo(Enemigos* enemi);
 	bool reduccionDeVida(Enemigos*, Caballero& );
-	ElementosJuegos* revisaSiesHerramienta();
-	bool ingresaHerramienta(Caballero& ); 
+	ElementosJuegos* revisaSiesHerramienta(ElementosJuegos* elem );
+	bool ingresaHerramienta(ElementosJuegos* elem,Caballero& );
 	void jugar();
 	template <typename T>
 	void colocarElementosAleatorios(int cantidad, char caracter);
