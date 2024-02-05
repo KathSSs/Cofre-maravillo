@@ -9,6 +9,6 @@ public:
     int getCantidad();
     void setCantidad(int);
     std::string getNombre();
-
+   
 };
 

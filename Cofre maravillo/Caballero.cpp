@@ -43,6 +43,12 @@ for (int i = 0; i < 3; i++) {
 
 }
 
+Caballero::Caballero(std::string n, int h)
+{
+	nombre = n;
+	hp = h;
+}
+
 
 
 Caballero::~Caballero() {
@@ -54,6 +60,7 @@ Caballero::~Caballero() {
 	}
 	delete[] inventario;
 }
+
 
  bool Caballero::setHerramientas(Herramientas* herramienta, int i, int j) {
 	//if (i >= 0 && i < 3 && j >= 0 && j < 4) {
@@ -82,6 +89,44 @@ void Caballero::eliminarHerramienta(int i, int j) {
 	}
 }
 
+void Caballero::guardarPartida()
+{
+	std::ofstream file;
+	file.open("registros.txt", std::ios::app);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+	for (int i = 0; i < 3;i++) {
+		for (int j = i; i < 4;j++) {
+			file << (inventario[i][j]->getNombre()) << " \n ";
+		}
+	}
+	file.close();
+}
+
+Caballero* Caballero::cargarPartida()
+{
+	std::ifstream file;
+	file.open("registros.txt", std::ios::in);
+
+	if (!file.is_open()) {
+		std::cout << "Error al abrir el archivo...\n";
+	}
+	std::string buffer;
+	std::string nombre;
+	int hp;
+	ElementosJuegos* ele;
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		std::getline(linea, nombre, '|');
+		linea >> hp;
+		return new Caballero(nombre,hp);
+
+	}
+}
+
 std::string Caballero::getNombre() { return nombre; }
+
 int Caballero::getHp() { return hp; }
 void Caballero::setHp(int JD) { hp = JD; }

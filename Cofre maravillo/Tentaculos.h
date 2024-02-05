@@ -11,5 +11,6 @@ public:
     void setCantidad(int);
     int getHpAtaque();
     Tipo getTipo();
+
 };
 

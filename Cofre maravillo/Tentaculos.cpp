@@ -9,3 +9,4 @@ int Tentaculos::getCantidad() { return cantidad; }
 void Tentaculos::setCantidad(int j) { cantidad = j;  }
 int Tentaculos::getHpAtaque() { return hpAtaque; }
 Tipo Tentaculos::getTipo() { return Tipo::AGUA; }
+

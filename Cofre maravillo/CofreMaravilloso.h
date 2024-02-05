@@ -9,5 +9,6 @@ public:
     std::string getNombre();
     int getCantidad();
     void setCantidad(int);
+
 };
 

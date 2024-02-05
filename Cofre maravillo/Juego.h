@@ -13,8 +13,7 @@
 #include "Items.h"
 #include "CofreMaravilloso.h"
 #include <typeinfo>
-#include <sstream>
-#include <fstream>
+#include <ostream>
 
 class Juego{
 private:
@@ -36,7 +35,6 @@ public:
 	void colocarElementosAleatorios(int cantidad, char caracter);
 
 	//metodos para usar archivos
-	// tenemos que ver si van aqui
 	void guardarPartida();
 	void cargarPartida(); 
 };
